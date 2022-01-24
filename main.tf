@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-2"
+  region = var.region
   access_key = var.access_key
   secret_key = var.secret_key
 }
@@ -90,7 +90,7 @@ resource "aws_security_group" "SGvpc" {
 }
 # create ec2 using above vpc
 resource "aws_instance" "EC2" {
-  ami                    = "ami-001089eb624938d9f" 
+  ami                    = var.ami 
   instance_type          = "t2.micro"
   associate_public_ip_address = "true"
   subnet_id              = "${aws_subnet.publicsubnet.id}"
