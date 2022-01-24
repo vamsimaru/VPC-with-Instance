@@ -95,5 +95,5 @@ resource "aws_instance" "EC2" {
   associate_public_ip_address = "true"
   subnet_id              = "${aws_subnet.publicsubnet.id}"
   vpc_security_group_ids = [aws_security_group.SGvpc.id]
-  key_name = var.key
+  key_name = var.key_name
 }
